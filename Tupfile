@@ -1,0 +1,5 @@
+CC = cc
+CFLAGS += -Ivendor
+TARGET = ulwm
+: foreach src/*.c |> $(CC) $(CFLAGS) -c %f -o %o |> obj/%B.o
+: obj/*.o |> $(CC) -lxcb %f -o %o |> bin/$(TARGET)
